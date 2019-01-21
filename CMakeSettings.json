@@ -1,17 +1,17 @@
 ﻿{
   "configurations": [
-    {
+   {
       "name": "Dev_RisLib",
       "generator": "Ninja",
-      "configurationType": "Release",
+      "configurationType": "RelWithDebInfo",
       "inheritEnvironments": [
-        "msvc_x64_x64"
+         "msvc_x64_x64"
       ],
-      "buildRoot": "${workspaceRoot}\\build",
-      "installRoot": "${workspaceRoot}\\install",
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${name}\\install",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": ""
-    }
+   }
   ]
 }

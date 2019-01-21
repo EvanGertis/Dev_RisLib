@@ -1,7 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-include(MyPCH.cmake)
-include(MyOptions.cmake)
+include(MyCMake.cmake)
 
 project ("Dev_RisLib")
 
