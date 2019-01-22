@@ -105,11 +105,11 @@ public:
 
    // Set the file name for the parms file. The full file path will be
    // relative to the alpha files directory.
-   void setAlphaFilesFileName(char* aFileName);
+   void setFileName_RelAlphaFiles(char* aFileName);
 
    // Set the file name for the parms file. The full file path will be
    // relative to the alpha settings directory.
-   void setAlphaSettingsFileName(char* aFileName);
+   void setFileName_RelAlphaSettings(char* aFileName);
 
    // Read a section of the command file and set member variables accordingly.
    // Create a command file object, open the file, pass this object to the file

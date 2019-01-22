@@ -34,7 +34,7 @@ PrintSettings::PrintSettings()
 void PrintSettings::reset()
 {
    BaseClass::reset();
-   BaseClass::setAlphaSettingsFileName("PrnPrint_Settings.txt");
+   BaseClass::setFileName_RelAlphaSettings("PrnPrint_Settings.txt");
 
    strcpy(mPrintViewHostIPAddress,"127.0.0.1");
    mPrintViewHostIPPort = Ris::Net::PortDef::cPrintView;

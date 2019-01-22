@@ -46,13 +46,13 @@ void BaseCmdLineParms::setFilePath(char* aFilePath)
    strncpy(mFilePath, aFilePath,cMaxStringSize);
 }
 
-void BaseCmdLineParms::setAlphaFilesFileName(char* aFileName)
+void BaseCmdLineParms::setFileName_RelAlphaFiles(char* aFileName)
 {
    char tBuffer[cMaxStringSize];
    strncpy(mFilePath, Ris::getAlphaFilePath_Files(tBuffer, aFileName), cMaxStringSize);
 }
 
-void BaseCmdLineParms::setAlphaSettingsFileName(char* aFileName)
+void BaseCmdLineParms::setFileName_RelAlphaSettings(char* aFileName)
 {
    char tBuffer[cMaxStringSize];
    strncpy(mFilePath, Ris::getAlphaFilePath_Settings(tBuffer, aFileName), cMaxStringSize);
@@ -143,7 +143,7 @@ bool BaseCmdLineParms::readSection(char* aSection)
    if (!tCmdLineFile.open(mFilePath))
    {
       // Exit the program if the open failed.
-      printf("BaseCmdLineParms::file open FAIL001 %s %s\n", mFilePath);
+      printf("BaseCmdLineParms::file open FAIL001 %s\n", mFilePath);
       exit(1);
       return false;
    }
