@@ -77,7 +77,6 @@ char* getAlphaFilePath_Image       (char* aBuffer, char* aFileName) { return get
 char* getAlphaFilePath_Lib         (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Lib",         aFileName); }
 char* getAlphaFilePath_Log         (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Log",         aFileName); }
 char* getAlphaFilePath_RecData     (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "RecData",     aFileName); }
-char* getAlphaFilePath_RollUI      (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "RollUI",      aFileName); }
 char* getAlphaFilePath_Settings    (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Settings",    aFileName); }
 char* getAlphaFilePath_TestImage   (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "TestImage",   aFileName); }
 char* getAlphaFilePath_Work        (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Work",        aFileName); }
