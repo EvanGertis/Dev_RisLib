@@ -72,12 +72,14 @@ char* getAlphaFilePath_Bin         (char* aBuffer, char* aFileName) { return get
 char* getAlphaFilePath_Calibration (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Calibration", aFileName); }
 char* getAlphaFilePath_Data        (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Data",        aFileName); }
 char* getAlphaFilePath_DLL         (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "DLL",         aFileName); }
+char* getAlphaFilePath_Files       (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Files",       aFileName); }
 char* getAlphaFilePath_Image       (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Image",       aFileName); }
 char* getAlphaFilePath_Lib         (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Lib",         aFileName); }
 char* getAlphaFilePath_Log         (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Log",         aFileName); }
 char* getAlphaFilePath_RecData     (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "RecData",     aFileName); }
 char* getAlphaFilePath_RollUI      (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "RollUI",      aFileName); }
 char* getAlphaFilePath_Settings    (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Settings",    aFileName); }
+char* getAlphaFilePath_TestImage   (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "TestImage",   aFileName); }
 char* getAlphaFilePath_Work        (char* aBuffer, char* aFileName) { return getAlphaFilePath_X(aBuffer, "Work",        aFileName); }
 
 //******************************************************************************
