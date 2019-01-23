@@ -24,7 +24,8 @@ function(my_add_compile_options _target)
    message(STATUS "my_add_compile_options************************ " ${_target})
    
 # target_compile_options(${_target} PRIVATE "/W3")
-   target_compile_options(${_target} PRIVATE "/WX-")
+#  target_compile_options(${_target} PRIVATE "/WX-")
+   target_compile_options(${_target} PRIVATE "/WX")
    target_compile_options(${_target} PRIVATE "/wd4996")
 
    target_compile_options(${_target} PRIVATE "/O2")
@@ -47,7 +48,6 @@ endfunction()
 #*******************************************************************************
 
 function(my_add_pch _target)
-
    message(STATUS "my_add_pch************************************ " ${_target})
 
    get_target_property(_src_files      ${_target} SOURCES)
@@ -94,19 +94,3 @@ function(my_show_src_files a_src_files _target)
    endforeach()
    message(STATUS "my_show_src_files*****************END")
 endfunction()
-
-function(my_find_src_files22 a_src_files)
-
-   #file(GLOB _src_files *.cpp)
-   file(GLOB _src_files RELATIVE ${PROJECT_SOURCE_DIR} *.cpp)
-   message(STATUS "my_find_src_files*****" ${_src_files})
-
-   foreach(_src_file ${_src_files})
-      message(STATUS "src_file*****" ${_src_file})
-   endforeach()
-
-  set(${a_src_files} ${_src_files} PARENT_SCOPE)
-
-endfunction()
-
-
