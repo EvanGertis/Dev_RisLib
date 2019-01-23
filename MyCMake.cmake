@@ -4,9 +4,16 @@
 
 function(my_find_src_files _a_src_files _target)
 
-   #file(GLOB _src_files *.cpp)
    file(GLOB _src_files RELATIVE ${PROJECT_SOURCE_DIR} *.cpp)
+
+   if(MSVC)
+      list(FILTER _src_files EXCLUDE REGEX ".*_linux.cpp$")
+   else()
+      list(FILTER _src_files EXCLUDE REGEX ".*_win.cpp$")
+   endif()
+
    set(${_a_src_files} ${_src_files} PARENT_SCOPE)
+
 
    message(STATUS "***********************************************************" ${_target})
    message(STATUS "my_find_src_files************************BEGIN " ${_target})
@@ -34,24 +41,48 @@ endfunction()
 function(my_add_compile_options _target)
    message(STATUS "my_add_compile_options************************ " ${_target})
    
-# target_compile_options(${_target} PRIVATE "/W3")
-#  target_compile_options(${_target} PRIVATE "/WX-")
-   target_compile_options(${_target} PRIVATE "/WX")
-   target_compile_options(${_target} PRIVATE "/wd4996")
+   if(MSVC)
+      target_compile_options(${_target} PRIVATE "/WX")
+      target_compile_options(${_target} PRIVATE "/wd4996")
 
-   target_compile_options(${_target} PRIVATE "/O2")
-   target_compile_options(${_target} PRIVATE "/Ot")
-   target_compile_options(${_target} PRIVATE "/Oi")
+      target_compile_options(${_target} PRIVATE "/O2")
+      target_compile_options(${_target} PRIVATE "/Ot")
+      target_compile_options(${_target} PRIVATE "/Oi")
 
-   target_compile_options(${_target} PRIVATE "/GS-")
-   target_compile_options(${_target} PRIVATE "/Gd")
+      target_compile_options(${_target} PRIVATE "/GS-")
+      target_compile_options(${_target} PRIVATE "/Gd")
 
-   target_compile_options(${_target} PRIVATE "/EHsc")
-   target_compile_options(${_target} PRIVATE "/MD")
-   target_compile_options(${_target} PRIVATE "/Zc:wchar_t")
-   target_compile_options(${_target} PRIVATE "/Zc:inline")
+      target_compile_options(${_target} PRIVATE "/EHsc")
+      target_compile_options(${_target} PRIVATE "/MD")
+      target_compile_options(${_target} PRIVATE "/Zc:wchar_t")
+      target_compile_options(${_target} PRIVATE "/Zc:inline")
 
-   target_compile_options(${_target} PRIVATE "/D_MBCS")
+      target_compile_options(${_target} PRIVATE "/D_MBCS")
+   else()
+      target_compile_options(${_target} PRIVATE "-std=c++11")
+      target_compile_options(${_target} PRIVATE "-fexceptions")
+      target_compile_options(${_target} PRIVATE "-O3")
+      target_compile_options(${_target} PRIVATE "-fthreadsafe-statics")
+      target_compile_options(${_target} PRIVATE "-frtti")
+      target_compile_options(${_target} PRIVATE "-fomit-frame-pointer")
+
+      target_compile_options(${_target} PRIVATE "-w")
+      target_compile_options(${_target} PRIVATE "-Wswitch")
+      target_compile_options(${_target} PRIVATE "-Wno-deprecated-declarations")
+      target_compile_options(${_target} PRIVATE "-Wempty-body")
+      target_compile_options(${_target} PRIVATE "-Wconversion")
+      target_compile_options(${_target} PRIVATE "-Wreturn-type")
+      target_compile_options(${_target} PRIVATE "-Wparentheses")
+      target_compile_options(${_target} PRIVATE "-Wno-format")
+      target_compile_options(${_target} PRIVATE "-Wuninitialized")
+      target_compile_options(${_target} PRIVATE "-Wunreachable-code")
+      target_compile_options(${_target} PRIVATE "-Wunused-function")
+      target_compile_options(${_target} PRIVATE "-Wunused-value")
+      target_compile_options(${_target} PRIVATE "-Wunused-variable")
+
+      target_compile_definitions(${_target} PRIVATE "-DNDEBUG")
+   endif()
+
 endfunction()
 
 #*******************************************************************************
