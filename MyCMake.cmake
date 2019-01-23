@@ -2,11 +2,11 @@
 #*******************************************************************************
 #*******************************************************************************
 
-function(my_find_src_files a_src_files _target)
+function(my_find_src_files _a_src_files _target)
 
    #file(GLOB _src_files *.cpp)
    file(GLOB _src_files RELATIVE ${PROJECT_SOURCE_DIR} *.cpp)
-   set(${a_src_files} ${_src_files} PARENT_SCOPE)
+   set(${_a_src_files} ${_src_files} PARENT_SCOPE)
 
    message(STATUS "***********************************************************" ${_target})
    message(STATUS "my_find_src_files************************BEGIN " ${_target})
@@ -14,6 +14,17 @@ function(my_find_src_files a_src_files _target)
       message(STATUS ${_src_file})
    endforeach()
    message(STATUS "my_find_src_files************************END")
+endfunction()
+
+#*******************************************************************************
+#*******************************************************************************
+#*******************************************************************************
+
+function(my_find_inc_files _a_inc_files)
+
+   file(GLOB _inc_files ${PROJECT_SOURCE_DIR}/*.h)
+   set(${_a_inc_files} ${_inc_files} PARENT_SCOPE)
+
 endfunction()
 
 #*******************************************************************************
