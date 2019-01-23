@@ -60,7 +60,7 @@ void resetVariables()
    for (int i = 0; i < cMaxConsoles; i++)
    {
       rConsoleFlag[i] = false;
-      rConsolePort[i] = gPrintSettings.mPrintViewHostIPPort + i;
+      rConsolePort[i] = gPrintSettings.mPrintViewIPPort + i;
    }
    // rConsoleFlag[0] = true;
 }
@@ -111,7 +111,7 @@ void initializePrint()
          // Create a socket to send to the PrintView console.
          Ris::Net::Settings tSettings;
          tSettings.setRemoteIp(
-            gPrintSettings.mPrintViewHostIPAddress,
+            gPrintSettings.mPrintViewRemoteIPAddress,
             rConsolePort[i]);
          rConsoleSocket[i].initialize(tSettings);
          rConsoleSocket[i].configure();
