@@ -90,6 +90,10 @@ endfunction()
 #*******************************************************************************
 
 function(my_add_pch _target)
+   if (NOT MSVC)
+      return()
+   endif()
+
    message(STATUS "my_add_pch************************************ " ${_target})
 
    get_target_property(_src_files      ${_target} SOURCES)
